@@ -1,0 +1,139 @@
+\documentclass{jiwu}
+
+\thetitle{使用逐差法测量纸张厚度}
+% 姓名、学号、班级
+\theauthor{XXX}{XXXXXXXX}{XXXXXX}
+\thedate{X/X/X}
+
+\begin{document}
+\maketitle
+\thispagestyle{firstpage}
+\section{实验目的}
+\begin{enumerate}
+    \item 学习使用列表法、逐差法记录并处理数据
+    \item 熟练掌握A类、B类不确定度，以及合成不确定度的计算
+    \item 熟练掌握游标卡尺的使用以及读数
+    \item 学习掌握有效数字修约及规则
+\end{enumerate}
+\section{实验器材}
+\begin{enumerate}
+    \item 游标卡尺 （$\Delta_{仪}=0.02\,\,mm$）
+    \item 书本 （初始50页）
+\end{enumerate}
+\section{实验原理}
+    \subsection{逐差法}
+    设自变量与因变量之间存在线性关系，并测得一组值 $(a_1,b_1),(a_2,b_2),\cdots,(a_k,b_k)$，其中$k$为偶数（$k=2n$），将数据分为两组：
+    
+    \begin{tabular}{ccccccccc}
+        $x_1$&$x_2$&$\cdots$&$x_n$&;&$x_{n+1}$&$x_{n+2}$&$\cdots$&$x_{2n}$\\
+        $y_1$&$y_2$&$\cdots$&$y_n$&;&$y_{n+1}$&$y_{n+2}$&$\cdots$&$y_{2n}$\\
+    \end{tabular}
+
+    用后一组的值与前一组的值对应相减（间隔$n$项逐差），并利用公式$y=ax+b$，得到：
+
+    $$
+        \begin{array}{l}
+            b_1=(y_{n+1}-y_1)/(x_{n+1}-x_1)\\
+            b_2=(y_{n+2}-y_2)/(x_{n+2}-x_2)\\
+            \vdots\\
+            b_n=(y_{2n}-y_n)/(x_{2n}-x_n)
+        \end{array}
+    $$\par
+
+    取平均值\par
+
+    $$
+        \bar{b}=\dfrac{1}{n}\sum_{i=1}^n \dfrac{y_{n+i}-y_i}{x_{n+i}-x_i}
+    $$
+    
+    通常自变量等间隔分布，我们有
+    $$
+        \bar{b}=\dfrac{\overline{\Delta_ny}}{\Delta_nx}
+    $$
+
+    带入线性表达式得到
+    $$
+        \bar{a}=\dfrac{1}{k}(\sum_{i=1}^ky_i-\bar{b}\sum_{i=1}^kx_i)
+    $$
+
+    $b$的不确定度为
+
+    $$
+        u(b)=\bar{b}\sqrt{\left[\dfrac{u(\Delta_nx)}{\Delta_nx}\right]^2+\left[\dfrac{u(\Delta_ny)}{\Delta_ny}\right]^2}
+    $$
+
+    其中
+    $$
+        \begin{array}{l}
+            u(\Delta_ny)=\sqrt{u_a^2(\Delta_ny)+u_b^2(\Delta_ny)}\\
+            u(\Delta_nx)=u_b(\Delta_nx)
+        \end{array}
+    $$
+
+    在等精良度测量条件下
+    $$
+        u_a(\Delta_ny)=\sqrt{\dfrac{\sum_{i=1}^k(\Delta_ny_i-\overline{\Delta_ny})^2}{(n-1)n}}
+    $$
+
+    这里$n=k/2$，同样地，$k$为奇数时，我们只需设$k=2n-1$.
+    \subsection{逐差法在本实验中的应用}
+        在本实验中，自变量纸张数量与因变量纸张厚度呈线性关系，且由于张数等间隔增加，可以应用逐差法处理实验数据。
+
+        在本实验中，待测定的单张纸厚度偏小，与游标卡尺最小分度值接近，单张纸测量会造成较大粗大误差。因此可以采用一次测量多张纸总厚度的形式，减小误差。
+\section{实验内容及步骤}
+\subsection{调整实验器材}
+取出游标卡尺，检查是否可以正常使用，归零后是否存在较大误差。
+\subsection{测量数据}
+\begin{enumerate}[label=\arabic*)]
+    \item 将测量分为8组，首先取50页纸，通过游标卡尺测量其厚度。
+    \item 增加10页纸，用游标卡尺测量其厚度。
+    \item 重复步骤2)，直至8组数据，记录在表格中。
+\end{enumerate}
+\subsection{数据处理}
+利用逐差法对数据进行处理分析，计算纸张厚度与不确定度。
+分10组处理，自50页起每次增加10页纸
+\section{实验记录与数据处理}
+\subsection{数据记录与处理}
+\begin{table}[hbtp]
+    \centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+    \hline
+    序号 i&1&2&3&4&5&6&7&8\\
+    \hline
+    纸张数 $N_i$&50&60&70&80&90&100&110&120\\
+    \hline
+    厚度 $h_i$/mm&2.76&3.24&3.70&4.18&4.64&5.06&5.50&6.02\\
+    \hline
+\end{tabular}
+\caption{原始数据}
+\begin{center}
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        序号 i&1&2&3&4\\
+        \hline
+        $x_{n+i}-x_i$&40&40&40&40\\
+        \hline
+        $y_{n+i}-y_i$/mm&1.88&1.82&1.80&1.84\\
+        \hline
+    \end{tabular}
+    \end{center}
+    \caption{逐差}
+\end{table}
+
+
+$
+    \overline{\delta d}=1.835\,\text{mm}
+$
+\subsection{计算不确定度及结果}
+$\Delta d$ 的A类不确定度$u_a(\Delta d)=\dfrac{1}{n}\sqrt{\dfrac{\dfrac{\sum\delta d^2}{n}-\overline{\delta d}^2}{n-1}}=0.0042696$，\\[0.5em]
+
+B类不确定度$u_b(\Delta d)=\dfrac{1}{n}\dfrac{\Delta_\text{仪}}{\sqrt{3}}=0.0028868$，\\[0.5em]
+
+合成不确定度$U(\Delta d)=\sqrt{u_a(\Delta d)^2+u_b(\Delta d)^2}=0.0051539$；\\[0.5em]
+
+每页纸的厚度为$\dfrac{\Delta d}{40}=0.011469\,\text{mm}$，不确定度为$\sqrt{(\frac{U(\Delta d)}{40})^2}=0.00012885$\\[0.5em]
+
+保留有效数字得最终结果，纸的厚度为$(0.0115\pm0.0001)$mm
+\end{document}
+
+
