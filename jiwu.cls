@@ -49,5 +49,11 @@
 \renewcommand\thesection{\chinese{section}、}
 \renewcommand\thesubsection{\arabic{subsection}.}
 \renewcommand\thesubsubsection{\alph{subsubsection})}
-\usepackage{caption}
+\RequirePackage{caption}
 \captionsetup[table]{name=表}
+
+\RequirePackage{siunitx}
+\sisetup{
+    separate-uncertainty = true,
+    inter-unit-product = \ensuremath{{}\cdot{}}
+}
